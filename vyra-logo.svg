@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 160" role="img" aria-labelledby="title">
+  <title id="title">VYRA, movemos tu camino</title>
+  <defs>
+    <linearGradient id="silver" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset="1" stop-color="#858585"/>
+    </linearGradient>
+    <linearGradient id="red" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff394b"/>
+      <stop offset="1" stop-color="#c90019"/>
+    </linearGradient>
+  </defs>
+  <path d="M8 8 56 25 91 66 91 49 114 63 114 111 91 137Z" fill="url(#silver)"/>
+  <path d="m91 56 72-48-38 53-23 17v29L86 88V69Z" fill="url(#red)"/>
+  <path d="m99 61 37-25-20 28-20 14v-8Z" fill="#080808" opacity=".88"/>
+  <text x="243" y="88" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="76" font-weight="700">YRA</text>
+  <text x="188" y="88" fill="#e3182d" font-family="Arial, Helvetica, sans-serif" font-size="76" font-weight="700">V</text>
+  <path d="M190 111h28M486 111h28" stroke="#e3182d" stroke-width="2"/>
+  <text x="229" y="116" fill="#ddd" font-family="Arial, Helvetica, sans-serif" font-size="13" letter-spacing="5">MOVEMOS TU CAMINO</text>
+</svg>

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VYRA | Compra y venta de vehículos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a href="#inicio" class="logo" aria-label="VYRA inicio">
+                <img src="vyra-logo.svg" alt="VYRA, movemos tu camino">
+            </a>
+
+            <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="nav" id="mainNav">
+                <a href="#inicio">Inicio</a>
+                <a href="#vehiculos">Comprar</a>
+                <a href="#vender">Vender</a>
+                <a href="#vehiculos">Vehículos</a>
+                <a href="#contacto">Contacto</a>
+                <button class="btn btn-accent" type="button" data-open-publish>Publicar vehículo</button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="inicio">
+            <div class="hero-media" aria-hidden="true"></div>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <p class="eyebrow">Plataforma de compra y venta</p>
+                <h1>Encuentra el carro que buscas</h1>
+                <p class="hero-text">
+                    VYRA conecta compradores y vendedores con un catálogo claro, filtros reales
+                    y contacto directo. Explora vehículos verificados y publica el tuyo en minutos.
+                </p>
+
+                <form class="hero-search" id="heroSearchForm">
+                    <label class="sr-only" for="heroQuery">Buscar vehículos</label>
+                    <span class="search-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.8"/>
+                            <path d="M20 20l-3.5-3.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                        </svg>
+                    </span>
+                    <input id="heroQuery" type="search" placeholder="Busca por marca, modelo o ciudad" autocomplete="off">
+                    <button class="btn btn-accent" type="submit">Buscar vehículos</button>
+                </form>
+            </div>
+        </section>
+
+        <section class="section vehicles-section" id="vehiculos">
+            <div class="container">
+                <div class="section-head">
+                    <div>
+                        <p class="eyebrow">Catálogo</p>
+                        <h2>Vehículos disponibles</h2>
+                    </div>
+                    <p class="results-count" id="resultsCount"></p>
+                </div>
+
+                <div class="filters" id="filters">
+                    <label>
+                        Marca
+                        <select id="filterMarca">
+                            <option value="">Todas</option>
+                        </select>
+                    </label>
+                    <label>
+                        Precio máximo
+                        <input id="filterPrecio" type="number" min="0" placeholder="Ej: 80000000">
+                    </label>
+                    <label>
+                        Año
+                        <select id="filterAnio">
+                            <option value="">Todos</option>
+                        </select>
+                    </label>
+                    <label>
+                        Tipo
+                        <select id="filterTipo">
+                            <option value="">Todos</option>
+                        </select>
+                    </label>
+                    <label>
+                        Combustible
+                        <select id="filterCombustible">
+                            <option value="">Todos</option>
+                        </select>
+                    </label>
+                    <label>
+                        Transmisión
+                        <select id="filterTransmision">
+                            <option value="">Todas</option>
+                        </select>
+                    </label>
+                    <label>
+                        Ciudad
+                        <select id="filterCiudad">
+                            <option value="">Todas</option>
+                        </select>
+                    </label>
+                    <button class="btn btn-ghost" type="button" id="clearFilters">Limpiar filtros</button>
+                </div>
+
+                <div class="carros" id="carrosPublicados"></div>
+                <p class="empty-state" id="emptyState" hidden>No hay vehículos que coincidan con tu búsqueda.</p>
+            </div>
+        </section>
+
+        <section class="section why-section" id="vender">
+            <div class="container">
+                <div class="section-head center">
+                    <div>
+                        <p class="eyebrow">Confianza</p>
+                        <h2>¿Por qué VYRA?</h2>
+                    </div>
+                </div>
+                <div class="why-grid">
+                    <article class="why-card">
+                        <span class="why-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none"><path d="M12 3l8 4v6c0 5-3.4 8.4-8 10-4.6-1.6-8-5-8-10V7l8-4z" stroke="currentColor" stroke-width="1.8"/><path d="M8.5 12.2l2.2 2.3 4.8-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </span>
+                        <h3>Compra segura</h3>
+                        <p>Información clara de cada vehículo y contacto verificable con el vendedor.</p>
+                    </article>
+                    <article class="why-card">
+                        <span class="why-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none"><path d="M4 16l2.2-6.2A3 3 0 0 1 9.05 8h5.9a3 3 0 0 1 2.85 1.8L20 16" stroke="currentColor" stroke-width="1.8"/><circle cx="7.5" cy="16.5" r="2" stroke="currentColor" stroke-width="1.8"/><circle cx="16.5" cy="16.5" r="2" stroke="currentColor" stroke-width="1.8"/></svg>
+                        </span>
+                        <h3>Gran variedad</h3>
+                        <p>Sedanes, SUVs, deportivos y más, con filtros que muestran resultados reales.</p>
+                    </article>
+                    <article class="why-card">
+                        <span class="why-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                        </span>
+                        <h3>Publicación sencilla</h3>
+                        <p>Completa un formulario corto y tu anuncio aparece en el catálogo al instante.</p>
+                    </article>
+                    <article class="why-card">
+                        <span class="why-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none"><path d="M5 19v-8l7-6 7 6v8H5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 19v-6h6v6" stroke="currentColor" stroke-width="1.8"/></svg>
+                        </span>
+                        <h3>Contacto directo</h3>
+                        <p>Habla con el vendedor sin intermediarios y coordina la visita en tu ciudad.</p>
+                    </article>
+                </div>
+                <div class="sell-cta">
+                    <div>
+                        <h3>¿Quieres vender tu carro?</h3>
+                        <p>Publica en VYRA y llega a compradores que ya están buscando.</p>
+                    </div>
+                    <button class="btn btn-accent" type="button" data-open-publish>Publicar vehículo</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="section contact-section" id="contacto">
+            <div class="container contact-grid">
+                <div>
+                    <p class="eyebrow">Estamos cerca</p>
+                    <h2>Contacto</h2>
+                    <p>Escríbenos para soporte, alianzas o dudas sobre tu anuncio. Horario de atención de lunes a sábado, 8:00 a. m. a 6:00 p. m.</p>
+                    <ul class="contact-list">
+                        <li>Cúcuta, Norte de Santander</li>
+                        <li>+57 321 324 3379</li>
+                        <li>hola@yire.com</li>
+                    </ul>
+                </div>
+                <form class="contact-form" id="siteContactForm">
+                    <label>Nombre
+                        <input type="text" name="nombre" required placeholder="Tu nombre">
+                    </label>
+                    <label>Correo
+                        <input type="email" name="correo" required placeholder="tucorreo@email.com">
+                    </label>
+                    <label>Mensaje
+                        <textarea name="mensaje" rows="4" required placeholder="¿En qué podemos ayudarte?"></textarea>
+                    </label>
+                    <button class="btn btn-dark" type="submit">Enviar mensaje</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div>
+                <a href="#inicio" class="logo light" aria-label="VYRA inicio">
+                    <img src="vyra-logo.svg" alt="VYRA, movemos tu camino">
+                </a>
+                <p>Plataforma moderna para comprar y vender vehículos en Colombia, con catálogo claro y contacto directo.</p>
+            </div>
+            <div>
+                <h3>Navegación</h3>
+                <a href="#inicio">Inicio</a>
+                <a href="#vehiculos">Comprar</a>
+                <a href="#vender">Vender</a>
+                <a href="#contacto">Contacto</a>
+            </div>
+            <div>
+                <h3>Contacto</h3>
+                <p>Av. Libertadores 120, Cúcuta</p>
+                <p>+57 318 555 0142</p>
+                <p>hola@yire.com</p>
+            </div>
+            <div>
+                <h3>Redes</h3>
+                <div class="socials">
+                    <a href="#" aria-label="Instagram">IG</a>
+                    <a href="#" aria-label="Facebook">FB</a>
+                    <a href="#" aria-label="WhatsApp">WA</a>
+                </div>
+            </div>
+        </div>
+        <p class="copyright">© 2026 VYRA. Todos los derechos reservados.</p>
+    </footer>
+
+    <div class="modal" id="detailsModal" role="dialog" aria-modal="true" aria-labelledby="detailsTitle" hidden>
+        <div class="modal-backdrop" data-close-modal></div>
+        <div class="modal-card details-card">
+            <button class="modal-close" type="button" data-close-modal aria-label="Cerrar">×</button>
+            <img id="detailsImage" alt="">
+            <div class="modal-body">
+                <p class="badge" id="detailsTipo"></p>
+                <h2 id="detailsTitle"></h2>
+                <p class="price" id="detailsPrice"></p>
+                <dl class="specs" id="detailsSpecs"></dl>
+                <p class="description" id="detailsDescription"></p>
+                <button class="btn btn-accent" type="button" id="contactSellerBtn">Contactar vendedor</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="publishModal" role="dialog" aria-modal="true" aria-labelledby="publishTitle" hidden>
+        <div class="modal-backdrop" data-close-modal></div>
+        <div class="modal-card form-card">
+            <button class="modal-close" type="button" data-close-modal aria-label="Cerrar">×</button>
+            <div class="modal-body">
+                <h2 id="publishTitle">Publicar vehículo</h2>
+                <p class="modal-lead">Completa los datos. Los campos con * son obligatorios.</p>
+                <form id="publishForm" class="publish-form">
+                    <label>Marca *
+                        <input name="marca" required placeholder="Toyota">
+                    </label>
+                    <label>Modelo *
+                        <input name="modelo" required placeholder="Corolla">
+                    </label>
+                    <label>Año *
+                        <input name="anio" type="number" min="1990" max="2026" required placeholder="2022">
+                    </label>
+                    <label>Precio *
+                        <input name="precio" type="number" min="1" required placeholder="75000000">
+                    </label>
+                    <label>Kilometraje *
+                        <input name="kilometraje" type="number" min="0" required placeholder="35000">
+                    </label>
+                    <label>Ciudad *
+                        <input name="ciudad" required placeholder="Cúcuta">
+                    </label>
+                    <label>Tipo de vehículo *
+                        <select name="tipo" required>
+                            <option value="">Selecciona</option>
+                            <option>Sedán</option>
+                            <option>SUV</option>
+                            <option>Hatchback</option>
+                            <option>Pickup</option>
+                            <option>Deportivo</option>
+                        </select>
+                    </label>
+                    <label>Combustible *
+                        <select name="combustible" required>
+                            <option value="">Selecciona</option>
+                            <option>Gasolina</option>
+                            <option>Diésel</option>
+                            <option>Híbrido</option>
+                            <option>Eléctrico</option>
+                        </select>
+                    </label>
+                    <label>Transmisión *
+                        <select name="transmision" required>
+                            <option value="">Selecciona</option>
+                            <option>Automática</option>
+                            <option>Manual</option>
+                        </select>
+                    </label>
+                    <label>Motor
+                        <input name="motor" placeholder="2.0 L">
+                    </label>
+                    <label class="full">URL de imagen
+                        <input name="imagen" type="url" placeholder="https://...">
+                    </label>
+                    <label class="full">Descripción *
+                        <textarea name="descripcion" rows="3" required placeholder="Estado del vehículo, extras y mantenimiento"></textarea>
+                    </label>
+                    <label>Nombre del vendedor *
+                        <input name="vendedor" required placeholder="Nombre completo">
+                    </label>
+                    <label>Teléfono *
+                        <input name="telefono" required placeholder="300 000 0000">
+                    </label>
+                    <p class="form-error" id="publishError" hidden></p>
+                    <div class="form-actions">
+                        <button class="btn btn-ghost" type="button" data-close-modal>Cancelar</button>
+                        <button class="btn btn-accent" type="submit">Publicar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="contactModal" role="dialog" aria-modal="true" aria-labelledby="contactTitle" hidden>
+        <div class="modal-backdrop" data-close-modal></div>
+        <div class="modal-card form-card compact">
+            <button class="modal-close" type="button" data-close-modal aria-label="Cerrar">×</button>
+            <div class="modal-body">
+                <h2 id="contactTitle">Contactar vendedor</h2>
+                <p id="contactSellerName"></p>
+                <p id="contactVehicle"></p>
+                <p id="contactPrice"></p>
+                <p id="contactPhone"></p>
+                <form id="sellerMessageForm">
+                    <label>Mensaje
+                        <textarea name="mensaje" rows="3" required placeholder="Hola, me interesa el vehículo..."></textarea>
+                    </label>
+                    <p class="form-error" id="contactError" hidden></p>
+                    <div class="form-actions">
+                        <button class="btn btn-ghost" type="button" data-close-modal>Cerrar</button>
+                        <button class="btn btn-accent" type="submit">Enviar mensaje</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast" id="toast" hidden></div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

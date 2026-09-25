@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publicar vehículo | VYRA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a href="index.html" class="logo" aria-label="VYRA inicio">
+                <img src="vyra-logo.svg" alt="VYRA, movemos tu camino">
+            </a>
+            <nav class="nav" id="mainNav">
+                <a href="index.html">Inicio</a>
+                <a href="index.html#vehiculos">Comprar</a>
+                <a href="publicar.html">Vender</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container publish-page">
+        <h1>Publica tu vehículo</h1>
+        <p>Completa la información. El anuncio se mostrará en el catálogo de VYRA.</p>
+
+        <form id="publishPageForm" class="publish-form contact-form">
+            <label>Marca *
+                <input name="marca" id="marca" required placeholder="Ej: Toyota">
+            </label>
+            <label>Modelo *
+                <input name="modelo" id="modelo" required placeholder="Ej: Corolla">
+            </label>
+            <label>Año *
+                <input name="anio" id="anio" type="number" required placeholder="Ej: 2022">
+            </label>
+            <label>Precio *
+                <input name="precio" id="precio" type="number" required placeholder="Ej: 75000000">
+            </label>
+            <label>Kilometraje *
+                <input name="kilometraje" id="kilometraje" type="number" required placeholder="Ej: 35000">
+            </label>
+            <label>Ciudad *
+                <input name="ciudad" id="ciudad" required placeholder="Ej: Cúcuta">
+            </label>
+            <label>Tipo
+                <select name="tipo">
+                    <option>Sedán</option>
+                    <option>SUV</option>
+                    <option>Hatchback</option>
+                    <option>Pickup</option>
+                    <option>Deportivo</option>
+                </select>
+            </label>
+            <label>Combustible
+                <select name="combustible">
+                    <option>Gasolina</option>
+                    <option>Diésel</option>
+                    <option>Híbrido</option>
+                    <option>Eléctrico</option>
+                </select>
+            </label>
+            <label>Transmisión
+                <select name="transmision">
+                    <option>Automática</option>
+                    <option>Manual</option>
+                </select>
+            </label>
+            <label>Motor
+                <input name="motor" placeholder="2.0 L">
+            </label>
+            <label class="full">URL de imagen
+                <input name="imagen" type="url" placeholder="https://...">
+            </label>
+            <label class="full">Descripción *
+                <textarea name="descripcion" id="descripcion" rows="5" required placeholder="Describe el estado del vehículo"></textarea>
+            </label>
+            <label>Nombre del vendedor *
+                <input name="vendedor" required placeholder="Tu nombre">
+            </label>
+            <label>Teléfono *
+                <input name="telefono" required placeholder="300 000 0000">
+            </label>
+            <p class="form-error" id="publishError" hidden></p>
+            <div class="form-actions">
+                <a class="btn btn-ghost" href="index.html">Volver</a>
+                <button class="btn btn-accent" type="submit">Publicar vehículo</button>
+            </div>
+        </form>
+    </main>
+
+    <div class="toast" id="toast" hidden></div>
+    <script src="app.js"></script>
+</body>
+
+</html>
